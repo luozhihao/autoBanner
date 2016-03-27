@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>bannerSort</title>
+	<style>
+		* {
+			padding:0;
+			margin:0;
+		}
+		.banner {
+			width:700px;
+			height:180px;
+			overflow: hidden;
+			margin:50px auto 0;
+		}
+		.banner a {
+			float:left;
+			width:175px;
+			height:180px;
+		}
+		.banner:before,.banner:after {
+			content:"";
+			display: table;
+			*zoom:1;
+		}
+		.banner:after {
+			clear:both;
+		}
+		.wrap {
+			width:800px;
+		}
+	</style>
+</head>
+<body>
+	<div class="banner">
+		<div class="wrap">
+			<a href=""><img src="images/1.jpg" alt=""></a>
+			<a href=""><img src="images/2.jpg" alt=""></a>
+			<a href=""><img src="images/3.jpg" alt=""></a>
+			<a href=""><img src="images/4.jpg" alt=""></a>
+		</div>
+	</div>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script>
+	$(function(){
+		$(".banner a").mouseover(function(){
+			$(this).stop(true,false).animate({"width":"250px","overflow":"hidden"},200).siblings().stop(true,false).animate({"width":"150px","overflow":"hidden"},200);
+		});
+		$(".banner").mouseout(function(){
+			$(".banner a").stop(true,false).animate({"width":"175px","overflow":"hidden"},200);
+		});
+	});
+	</script>
+</body>
+</html>
